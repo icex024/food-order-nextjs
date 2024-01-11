@@ -1,10 +1,14 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { SessionStateInterface } from "./SessionStateInterface";
+import {
+  SessionStateInterface,
+  SessionStatusEnum,
+} from "./SessionStateInterface";
 import { setAuthToken } from "../axios-wrapper";
 import tokenStorage from "./tokenStorage";
 
 const initialState: SessionStateInterface = {
   token: "",
+  sessionStatus: SessionStatusEnum.NotStarted,
 };
 
 export const sessionSlice = createSlice({
@@ -13,6 +17,7 @@ export const sessionSlice = createSlice({
   reducers: {
     setSessionToken: (state, action: PayloadAction<string>) => {
       state.token = action.payload;
+      state.sessionStatus = SessionStatusEnum.Ready;
       setAuthToken(action.payload);
       tokenStorage.setToken(action.payload);
     },
