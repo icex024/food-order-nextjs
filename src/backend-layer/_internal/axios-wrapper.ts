@@ -1,4 +1,7 @@
 import axios from "axios";
+import tokenStorage from "./session/tokenStorage";
+
+const NEXT_PUBLIC_BACKEND_API_URL = "http://localhost:8080/api/v1"; //ovo namesti lepo kad dokerizujes
 
 const defaultHeaders = {
   accept: "application/json",
@@ -6,15 +9,16 @@ const defaultHeaders = {
 };
 
 let axiosInstance = axios.create({
-  baseURL: "http://localhost:8080/api/v1",
+  baseURL: NEXT_PUBLIC_BACKEND_API_URL,
   headers: {
     ...defaultHeaders,
   },
 });
 
 export function setAuthToken(token: string) {
+  console.log("uslo u auth");
   axiosInstance = axios.create({
-    baseURL: "http://localhost:8080/api/v1",
+    baseURL: NEXT_PUBLIC_BACKEND_API_URL,
     headers: {
       ...defaultHeaders,
       Authorization: `Bearer ${token}`,
