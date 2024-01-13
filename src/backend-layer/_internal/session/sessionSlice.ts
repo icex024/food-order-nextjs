@@ -21,9 +21,13 @@ export const sessionSlice = createSlice({
       setAuthToken(action.payload);
       tokenStorage.setToken(action.payload);
     },
+    setSessionTokenWrondCredentials: (state) => {
+      state.sessionStatus = SessionStatusEnum.WrongCredentials;
+    },
   },
 });
 
-export const { setSessionToken } = sessionSlice.actions;
+export const { setSessionToken, setSessionTokenWrondCredentials } =
+  sessionSlice.actions;
 
 export default sessionSlice.reducer;
