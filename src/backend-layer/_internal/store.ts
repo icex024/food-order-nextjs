@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useMemo } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
-import sessionSlice from "./session/sessionSlice";
-import foodUISlice from "./food-ui/foodUISlice";
+import sessionSlice from "./redux/session/sessionSlice";
+import foodUISlice from "./redux/food-ui/foodUISlice";
 
 function makeStore() {
   return configureStore({

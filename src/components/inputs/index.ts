@@ -1,0 +1,1 @@
+export { RegularTextInput } from "./RegularTextInput";
