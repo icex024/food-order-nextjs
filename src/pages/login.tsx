@@ -1,5 +1,5 @@
-import { SessionStatusEnum } from "@/backend-layer/_internal/session/SessionStateInterface";
-import { useStatusSession } from "@/backend-layer/_internal/session/useStatusSession";
+import { SessionStatusEnum } from "@/backend-layer/_internal/redux/session/SessionStateInterface";
+import { useStatusSession } from "@/backend-layer/_internal/redux/session/useStatusSession";
 import { useLogin, useRedirectToMainPage } from "@/backend-layer/session";
 import { RegularButton } from "@/components/buttons";
 import { NextPage } from "next";
@@ -38,10 +38,12 @@ const Login: NextPage = () => {
           </div>
         )}
         <div className="flex gap-6 px-6">
-          <RegularButton color="white">Sign up</RegularButton>
+          <RegularButton className="mr-2" color="white">
+            Sign up
+          </RegularButton>
           <RegularButton
             onClick={() => login(username, password)}
-            color="white"
+            color="primary-fourth"
           >
             Sign in
           </RegularButton>

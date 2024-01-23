@@ -1,0 +1,1 @@
+export { MapComponentSignUp } from "./MapComponentSignUp";

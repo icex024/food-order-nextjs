@@ -1,5 +1,5 @@
 import axios from "axios";
-import tokenStorage from "./session/tokenStorage";
+import tokenStorage from "./redux/session/tokenStorage";
 
 const NEXT_PUBLIC_BACKEND_API_URL = "http://localhost:8080/api/v1"; //ovo namesti lepo kad dokerizujes
 
