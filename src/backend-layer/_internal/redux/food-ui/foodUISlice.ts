@@ -4,6 +4,7 @@ import { applyFetchAllergensAsyncExtraReducers } from "./fetchAllergensAsync";
 import { appplyFetchFoodsForMenuAsync } from "./fetchFoodsForMenuAsync";
 import { applyFetchRestaurantByIdAsync } from "./fetchRestaurantByIdAsync";
 import { applyFetchAllIngredients } from "./fetchAllIngredients";
+import { applyFetchMenusAsync } from "./fetchMenusAsync";
 
 const foodUISliceInitialState: FoodInterface = {
   allergens: [],
@@ -28,6 +29,7 @@ const foodUISliceInitialState: FoodInterface = {
     workTimeStart: "",
   },
   ingredients: [],
+  menus: [],
 };
 
 export const foodUISlice = createSlice({
@@ -43,6 +45,7 @@ export const foodUISlice = createSlice({
     appplyFetchFoodsForMenuAsync(builder);
     applyFetchRestaurantByIdAsync(builder);
     applyFetchAllIngredients(builder);
+    applyFetchMenusAsync(builder);
   },
 });
 

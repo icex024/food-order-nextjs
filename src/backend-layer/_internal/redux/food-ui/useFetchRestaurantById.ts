@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useAppDispatch } from "../store";
+import { useAppDispatch } from "../../store";
 import { fetchRestaurantByIdAsync } from "./fetchRestaurantByIdAsync";
 
 export const useFetchRestaurantById = () => {

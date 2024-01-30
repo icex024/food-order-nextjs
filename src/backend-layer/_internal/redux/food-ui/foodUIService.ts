@@ -3,6 +3,7 @@ import {
   AllergenDto,
   FoodDto,
   IngredientDto,
+  MenuDto,
   RestaurantDto,
 } from "./FoodInterface";
 import { getAxios } from "../../axios-wrapper";
@@ -33,4 +34,8 @@ export const getAllIngredients = (): Promise<
   AxiosResponse<IngredientDto[], unknown>
 > => {
   return getAxios().get("/ingredient/get-all-ingredients", { data: {} });
+};
+
+export const getMenusForRestaurant = (id: string) => {
+  return getAxios().get<MenuDto[]>("/menu/get-menus?id=" + id);
 };

@@ -1,6 +1,6 @@
 import { ActionReducerMapBuilder, createAsyncThunk } from "@reduxjs/toolkit";
 import { FoodInterface, RestaurantDto } from "./FoodInterface";
-import { AppState } from "../store";
+import { AppState } from "../../store";
 import { getRestaurantById } from "./foodUIService";
 import { fetchFoodsForMenuAsync } from "./fetchFoodsForMenuAsync";
 

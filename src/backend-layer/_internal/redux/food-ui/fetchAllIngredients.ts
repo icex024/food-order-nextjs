@@ -1,7 +1,7 @@
 import { ActionReducerMapBuilder, createAsyncThunk } from "@reduxjs/toolkit";
 import { FoodInterface, IngredientDto } from "./FoodInterface";
 import { getAllIngredients } from "./foodUIService";
-import { AppState } from "../store";
+import { AppState } from "../../store";
 
 export const fetchAllIngredients = createAsyncThunk<
   IngredientDto[],
