@@ -10,3 +10,6 @@ export { useFetchMenus } from "../_internal/redux/food-ui/useFetchMenus";
 export { useFoodsForMenu } from "../_internal/redux/food-ui/useFoodsForMenu";
 export { useGetAllergens } from "../_internal/redux/food-ui/useGetAllergens";
 export { useGetIngredients } from "../_internal/redux/food-ui/useGetIngredients";
+export { useGetFood } from "../_internal/redux/food-ui/useGetFood";
+export { useCalculatePrice } from "../_internal/redux/food-ui/useCalculatePrice";
+export { useFetchFoodsByMenuIds } from "../_internal/redux/food-ui/useFetchFoodsByMenuIds";

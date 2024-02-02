@@ -3,6 +3,7 @@ import {
   useFetchFoodsByMenuId,
   useFetchMenus,
   useFoodsForMenu,
+  useGetFood,
   useGetIngredients,
   useSelectedRestaurant,
 } from "@/backend-layer/food-ui";
@@ -13,14 +14,23 @@ import NoImage from "../../../../public/images/no-image.png";
 import { FC, ReactNode, useState } from "react";
 import { animate, motion } from "framer-motion";
 import { FoodDto } from "@/backend-layer/_internal/redux/food-ui/FoodInterface";
+import { RegularButton } from "@/components/buttons";
+import { NumberInput } from "@/components/inputs";
+import {
+  useAddUnitsToCart,
+  useCheckIfThereIsOrder,
+} from "@/backend-layer/order";
+import { useRouter } from "next/router";
 
 export const PreviewRestaurant = () => {
   const restaurant = useSelectedRestaurant();
   const menus = useFetchMenus(restaurant.id);
   useFetchAllIngredients();
+  const router = useRouter();
+  const checkOrder = useCheckIfThereIsOrder();
   return (
     <>
-      <div className="pt-4 flex">
+      <div className="pt-4 flex relative">
         <div>
           {
             <Image
@@ -44,6 +54,16 @@ export const PreviewRestaurant = () => {
           <div className="text-[24px]  font-poppins">
             {restaurant.workTimeStart}-{restaurant.workTimeEnd}
           </div>
+        </div>
+        <div className="h-[50px] w-44 absolute bottom-0 right-0">
+          <RegularButton
+            color="primary-fourth"
+            onClick={() => {
+              checkOrder();
+            }}
+          >
+            Proceed with order
+          </RegularButton>
         </div>
       </div>
       <div className="mt-8 w-full">
@@ -98,21 +118,38 @@ const MenuItem: FC<{ children: ReactNode; menuId: string }> = ({
 };
 
 const FoodItem: FC<{ food: FoodDto }> = ({ food }) => {
+  const [numberOfUnits, setNumberOfUnits] = useState(1);
   const ingredients = useGetIngredients(food.ingredients);
-  console.log(food.ingredients);
+  const addUnitsToCart = useAddUnitsToCart();
   return (
-    <div className="max-w-[256px] w-full  rounded-xl overflow-hidden shadow-xl bg-white">
-      {<Image src={NoImage} alt="nista" width={256} height={256} />}
-      <div className="flex flex-col justify-between">
-        <div className="p-2">{food.name}</div>
-        <div className="p-2">{food.description}</div>
-        <div className="p-2">{food.foodType}</div>
-        <div className="p-2">
-          {ingredients.map((ingredient, i) => (
-            <div key={i}>{ingredient.name}</div>
-          ))}
+    <div className="flex flex-col justify-between max-w-[256px] w-full rounded-xl overflow-hidden shadow-xl bg-white">
+      <div>
+        <Image src={NoImage} alt="nista" width={256} height={256} />
+
+        <div className="flex flex-col justify-between ">
+          <div className="p-2">{food.name}</div>
+          <div className="p-2">{food.description}</div>
+          <div className="p-2">{food.foodType}</div>
+          <div className="p-2">
+            {ingredients.map((ingredient, i) => (
+              <div key={i}>{ingredient.name}</div>
+            ))}
+          </div>
+          <div className="p-2">{food.price}</div>
         </div>
-        <div className="p-2">{food.price}</div>
+      </div>
+      <div className="px-2 pb-2">
+        <div className="mb-2">
+          <NumberInput value={numberOfUnits} setState={setNumberOfUnits} />
+        </div>
+        <div>
+          <RegularButton
+            color="primary-fourth"
+            onClick={() => addUnitsToCart(food.id, numberOfUnits)}
+          >
+            Add to cart
+          </RegularButton>
+        </div>
       </div>
     </div>
   );

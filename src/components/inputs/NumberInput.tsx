@@ -1,18 +1,19 @@
 import classNames from "classnames";
-import { Dispatch, SetStateAction } from "react";
 
 interface Props {
   placeholder?: string;
-  setState: (cnst: string) => void;
+  setState: (cnst: number) => void;
   className?: string;
-  password?: boolean;
+  value?: number;
+  min?: string;
 }
 
-export const RegularTextInput: React.FC<Props> = ({
+export const NumberInput: React.FC<Props> = ({
   placeholder = "",
   setState,
   className = "",
-  password = false,
+  value = 1,
+  min = "1",
 }) => {
   return (
     <div
@@ -24,10 +25,12 @@ export const RegularTextInput: React.FC<Props> = ({
       <input
         className={classNames("w-full h-full px-4 focus:outline-none")}
         placeholder={placeholder}
+        value={value}
         onChange={(e) => {
-          setState(e.target.value);
+          setState(Number(e.target.value));
         }}
-        type={password ? "password" : "text"}
+        type="number"
+        min={min}
       />
     </div>
   );

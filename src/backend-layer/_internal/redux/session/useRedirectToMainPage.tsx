@@ -19,6 +19,7 @@ export const useRedirectToMainPage = () => {
     if (typeof token === "string") {
       const decoded = jwtDecode<{
         authorities: string[];
+        id: string;
         sub: string;
         iat: number;
         exp: number;

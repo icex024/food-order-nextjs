@@ -8,7 +8,7 @@ interface Props {
   password?: boolean;
 }
 
-export const RegularTextInput: React.FC<Props> = ({
+export const TextAreaInput: React.FC<Props> = ({
   placeholder = "",
   setState,
   className = "",
@@ -21,13 +21,14 @@ export const RegularTextInput: React.FC<Props> = ({
         className
       )}
     >
-      <input
-        className={classNames("w-full h-full px-4 focus:outline-none")}
+      <textarea
+        className={classNames(
+          "w-full h-full px-4 focus:outline-none resize-none"
+        )}
         placeholder={placeholder}
         onChange={(e) => {
           setState(e.target.value);
         }}
-        type={password ? "password" : "text"}
       />
     </div>
   );

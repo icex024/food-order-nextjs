@@ -1,6 +1,7 @@
 export interface SessionStateInterface {
   token: string;
   sessionStatus: SessionStatusEnum;
+  userId: string;
 }
 
 export enum SessionStatusEnum {
