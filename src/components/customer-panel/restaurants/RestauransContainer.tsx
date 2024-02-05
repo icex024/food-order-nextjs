@@ -12,59 +12,8 @@ export const RestaurantsContainer: FC<Props> = ({ className = "" }) => {
   const restaurants = useRestaurants();
   return (
     <div
-      className={classNames(
-        "grid grid-cols-5 place-items-center gap-4",
-        className
-      )}
+      className={classNames("flex flex-wrap gap-8 justify-center", className)}
     >
-      {restaurants.map((restaurant, i) => (
-        <RestaurantCard restaurant={restaurant} key={i} />
-      ))}
-      {restaurants.map((restaurant, i) => (
-        <RestaurantCard restaurant={restaurant} key={i} />
-      ))}
-      {restaurants.map((restaurant, i) => (
-        <RestaurantCard restaurant={restaurant} key={i} />
-      ))}
-      {restaurants.map((restaurant, i) => (
-        <RestaurantCard restaurant={restaurant} key={i} />
-      ))}
-      {restaurants.map((restaurant, i) => (
-        <RestaurantCard restaurant={restaurant} key={i} />
-      ))}
-      {restaurants.map((restaurant, i) => (
-        <RestaurantCard restaurant={restaurant} key={i} />
-      ))}
-      {restaurants.map((restaurant, i) => (
-        <RestaurantCard restaurant={restaurant} key={i} />
-      ))}
-      {restaurants.map((restaurant, i) => (
-        <RestaurantCard restaurant={restaurant} key={i} />
-      ))}
-      {restaurants.map((restaurant, i) => (
-        <RestaurantCard restaurant={restaurant} key={i} />
-      ))}
-      {restaurants.map((restaurant, i) => (
-        <RestaurantCard restaurant={restaurant} key={i} />
-      ))}
-      {restaurants.map((restaurant, i) => (
-        <RestaurantCard restaurant={restaurant} key={i} />
-      ))}
-      {restaurants.map((restaurant, i) => (
-        <RestaurantCard restaurant={restaurant} key={i} />
-      ))}
-      {restaurants.map((restaurant, i) => (
-        <RestaurantCard restaurant={restaurant} key={i} />
-      ))}
-      {restaurants.map((restaurant, i) => (
-        <RestaurantCard restaurant={restaurant} key={i} />
-      ))}
-      {restaurants.map((restaurant, i) => (
-        <RestaurantCard restaurant={restaurant} key={i} />
-      ))}
-      {restaurants.map((restaurant, i) => (
-        <RestaurantCard restaurant={restaurant} key={i} />
-      ))}
       {restaurants.map((restaurant, i) => (
         <RestaurantCard restaurant={restaurant} key={i} />
       ))}

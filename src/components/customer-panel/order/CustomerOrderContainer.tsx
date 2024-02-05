@@ -14,6 +14,7 @@ import { FC } from "react";
 import { calculateUnits } from "./calculateUnits";
 import { OrderItem } from "./OrderItem";
 import { RegularButton } from "@/components/buttons";
+import { formatISO } from "date-fns";
 
 export const CustomerOrderContainer: FC<{ isInProgress: boolean }> = ({
   isInProgress,
@@ -35,6 +36,8 @@ const OrderCard: FC<{ order: ViewOrderDto }> = ({ order }) => {
   useFetchFoodsByMenuIds(menus.map((menu) => menu.id));
   const foodDictionary = calculateUnits(order.foodIds);
   const cancelOrder = useCancelOrder();
+  const date = new Date(order.timeOfMakingOrder);
+  console.log(date);
   return (
     <div className="flex flex-col justify-between max-w-[256px] w-full rounded-xl overflow-hidden shadow-xl bg-white p-4">
       <div className="flex flex-col gap-1 pb-2">
@@ -42,7 +45,7 @@ const OrderCard: FC<{ order: ViewOrderDto }> = ({ order }) => {
         <div>
           {Object.keys(foodDictionary).map((food, i) => (
             <OrderItem
-              fontSize="text-[18px]"
+              fontSize="text-[14px]"
               foodId={food}
               units={foodDictionary[food]}
               key={i}
@@ -50,19 +53,17 @@ const OrderCard: FC<{ order: ViewOrderDto }> = ({ order }) => {
           ))}
         </div>
         <div className="font-poppins text-[18px] ">Note:</div>
-        <div className="font-poppins text-[18px]">{order.note}</div>
+        <div className="font-poppins text-[14px]">{order.note}</div>
         <div className="font-poppins text-[18px]">Price:</div>
-        <div className="font-poppins text-[18px]">{order.price}</div>
+        <div className="font-poppins text-[14px]">{order.price}</div>
         <div className="font-poppins text-[18px]">Payment type:</div>
-        <div className="font-poppins text-[18px]">{order.paymentType}</div>
+        <div className="font-poppins text-[14px]">{order.paymentType}</div>
         <div className="font-poppins text-[18px]">Restaurant name:</div>
-        <div className="font-poppins text-[18px]">{order.restaurantName}</div>
+        <div className="font-poppins text-[14px]">{order.restaurantName}</div>
         <div className="font-poppins text-[18px]">Time of order:</div>
-        <div className="font-poppins text-[18px] ">
-          {order.timeOfMakingOrder}
-        </div>
+        <div className="font-poppins text-[14px] ">{`${date.getDate()}.${date.getMonth()}.${date.getFullYear()}. ${date.getHours()}:${date.getMinutes()}`}</div>
         <div className="font-poppins text-[18px]">Status:</div>
-        <div className="font-poppins text-[18px]">{order.status}</div>
+        <div className="font-poppins text-[14px]">{order.status}</div>
       </div>
       <div>
         <RegularButton
