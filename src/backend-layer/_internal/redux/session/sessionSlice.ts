@@ -9,6 +9,7 @@ import { applySendSignUpRequestAsync } from "../../context/signup/sendSignUpRequ
 
 const initialState: SessionStateInterface = {
   token: "",
+  userId: "",
   sessionStatus: SessionStatusEnum.NotStarted,
 };
 

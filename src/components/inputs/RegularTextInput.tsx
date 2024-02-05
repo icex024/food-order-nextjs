@@ -5,7 +5,6 @@ interface Props {
   placeholder?: string;
   setState: (cnst: string) => void;
   className?: string;
-
   password?: boolean;
 }
 

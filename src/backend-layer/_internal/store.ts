@@ -3,10 +3,17 @@ import { useMemo } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import sessionSlice from "./redux/session/sessionSlice";
 import foodUISlice from "./redux/food-ui/foodUISlice";
+import restaurantUiSlice from "./redux/restaurant-ui/restaurantsUiSlice";
+import orderSlice from "./redux/order/orderSlice";
 
 function makeStore() {
   return configureStore({
-    reducer: { session: sessionSlice, foodUI: foodUISlice },
+    reducer: {
+      session: sessionSlice,
+      foodUI: foodUISlice,
+      restaurantsUi: restaurantUiSlice,
+      order: orderSlice,
+    },
   });
 }
 

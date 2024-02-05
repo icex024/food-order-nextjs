@@ -4,6 +4,7 @@ export interface FoodInterface {
   restaurant: RestaurantDto;
   restaurantId: string;
   ingredients: IngredientDto[];
+  menus: MenuDto[];
 }
 
 export interface AllergenDto {
@@ -47,4 +48,9 @@ export interface IngredientDto {
   id: string;
   name: string;
   allergensId: string[];
+}
+
+export interface MenuDto {
+  id: string;
+  name: string;
 }

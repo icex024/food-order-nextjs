@@ -16,7 +16,6 @@ let axiosInstance = axios.create({
 });
 
 export function setAuthToken(token: string) {
-  console.log("uslo u auth");
   axiosInstance = axios.create({
     baseURL: NEXT_PUBLIC_BACKEND_API_URL,
     headers: {

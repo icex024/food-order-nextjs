@@ -1,4 +1,4 @@
-import { useAppDispatch } from "../store";
+import { useAppDispatch } from "../../store";
 import { setRestaurantId } from "./foodUISlice";
 
 export const useSetRestaurantId = () => {
