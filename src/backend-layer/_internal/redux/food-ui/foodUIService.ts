@@ -39,3 +39,10 @@ export const getAllIngredients = (): Promise<
 export const getMenusForRestaurant = (id: string) => {
   return getAxios().get<MenuDto[]>("/menu/get-menus?id=" + id);
 };
+
+export const getFoodStatistics = (managerId: string, date: String) => {
+  return getAxios().get(
+    "/order/get-food-statistics?managerId=" + managerId + "&date=" + date,
+    { data: {} }
+  );
+};

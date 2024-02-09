@@ -5,6 +5,7 @@ import sessionSlice from "./redux/session/sessionSlice";
 import foodUISlice from "./redux/food-ui/foodUISlice";
 import restaurantUiSlice from "./redux/restaurant-ui/restaurantsUiSlice";
 import orderSlice from "./redux/order/orderSlice";
+import loyaltySlice from "./redux/loyalty/loyaltySlice";
 
 function makeStore() {
   return configureStore({
@@ -13,6 +14,7 @@ function makeStore() {
       foodUI: foodUISlice,
       restaurantsUi: restaurantUiSlice,
       order: orderSlice,
+      loyalty: loyaltySlice,
     },
   });
 }

@@ -1,0 +1,1 @@
+export { FoodOrdersinMonthComponent } from "./FoodOrdersinMonthComponent";

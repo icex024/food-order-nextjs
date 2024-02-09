@@ -13,3 +13,10 @@ export { useGetIngredients } from "../_internal/redux/food-ui/useGetIngredients"
 export { useGetFood } from "../_internal/redux/food-ui/useGetFood";
 export { useCalculatePrice } from "../_internal/redux/food-ui/useCalculatePrice";
 export { useFetchFoodsByMenuIds } from "../_internal/redux/food-ui/useFetchFoodsByMenuIds";
+export { useFetchFoodStatistics } from "../_internal/redux/food-ui/useFetchFoodStatistics";
+export { useFoodStatistics } from "../_internal/redux/food-ui/useFoodStatistics";
+export { useInitialStatisticsYearAndMotnh } from "../_internal/redux/food-ui/useInitialStatisticsYearAndMotnh";
+export { useSelectedStatisticsMonth } from "../_internal/redux/food-ui/useSelectedStatisticsMonth";
+export { useSelectedStatisticsYear } from "../_internal/redux/food-ui/useSelectedStatisticsYear";
+export { useSetStatisticsMonth } from "../_internal/redux/food-ui/useSetStatisticsMonth";
+export { useSetStatisticsYear } from "../_internal/redux/food-ui/useSetStatisticsYear";

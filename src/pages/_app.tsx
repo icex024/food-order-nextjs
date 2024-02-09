@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import "../styles/globals.css";
 import { useStartSessionIfNotStarted } from "@/backend-layer/session";
+import { useInitialStatisticsYearAndMotnh } from "@/backend-layer/food-ui";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const store = useStore();
@@ -17,5 +18,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
 const StartSessionWrapper = () => {
   useStartSessionIfNotStarted();
+  useInitialStatisticsYearAndMotnh();
   return <></>;
 };

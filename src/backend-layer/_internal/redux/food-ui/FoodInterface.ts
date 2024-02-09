@@ -5,6 +5,9 @@ export interface FoodInterface {
   restaurantId: string;
   ingredients: IngredientDto[];
   menus: MenuDto[];
+  foodStatistics: FoodStatisticsDto[];
+  foodStatisticsMonth: number;
+  foodStatisticsYear: number;
 }
 
 export interface AllergenDto {
@@ -53,4 +56,11 @@ export interface IngredientDto {
 export interface MenuDto {
   id: string;
   name: string;
+}
+
+export interface FoodStatisticsDto {
+  id: string;
+  name: string;
+  numberOfOrders: number;
+  date: string;
 }
