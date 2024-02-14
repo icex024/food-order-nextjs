@@ -8,10 +8,22 @@ const defaultHeaders = {
   "content-type": "application/json",
 };
 
+const defaultHeadersWithFile = {
+  accept: "multipart/form-data",
+  "content-type": "multipart/form-data",
+};
+
 let axiosInstance = axios.create({
   baseURL: NEXT_PUBLIC_BACKEND_API_URL,
   headers: {
     ...defaultHeaders,
+  },
+});
+
+let axiosInstanceWithFile = axios.create({
+  baseURL: NEXT_PUBLIC_BACKEND_API_URL,
+  headers: {
+    ...defaultHeadersWithFile,
   },
 });
 
@@ -24,7 +36,16 @@ export function setAuthToken(token: string) {
     },
   });
 }
+export function setAuthTokenFile(token: string) {
+  axiosInstanceWithFile = axios.create({
+    baseURL: NEXT_PUBLIC_BACKEND_API_URL,
+    headers: {
+      ...defaultHeaders,
+      Authorization: `Bearer ${token}`,
+    },
+  });
+}
 
-export function getAxios() {
-  return axiosInstance;
+export function getAxios(file?: boolean) {
+  return file ? axiosInstanceWithFile : axiosInstance;
 }

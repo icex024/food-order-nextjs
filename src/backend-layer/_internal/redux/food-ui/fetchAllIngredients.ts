@@ -21,5 +21,12 @@ export const applyFetchAllIngredients = (
 ) => {
   builder.addCase(fetchAllIngredients.fulfilled, (state, action) => {
     state.ingredients = action.payload;
+    state.ingredientsFetchStatus = "FETCHED";
+  });
+  builder.addCase(fetchAllIngredients.rejected, (state) => {
+    state.ingredientsFetchStatus = "REJECTED";
+  });
+  builder.addCase(fetchAllIngredients.pending, (state) => {
+    state.ingredientsFetchStatus = "PENDING";
   });
 };

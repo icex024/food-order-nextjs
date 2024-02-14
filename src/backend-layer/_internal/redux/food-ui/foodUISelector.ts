@@ -39,3 +39,11 @@ export const selectedFoodStatisticsMonth = (state: AppState) =>
 
 export const selectedFoodStatisticsYear = (state: AppState) =>
   state.foodUI.foodStatisticsYear;
+
+export const menusManagerFetchStatus = (state: AppState) =>
+  state.foodUI.menusManagerFetchStatus;
+
+export const ingredientFetchStatus = (state: AppState) =>
+  state.foodUI.ingredientsFetchStatus;
+
+export const allIngredients = (state: AppState) => state.foodUI.ingredients;

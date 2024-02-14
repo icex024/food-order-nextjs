@@ -18,6 +18,12 @@ export const NavbarManager = () => {
           >
             Loyalty
           </div>
+          <div
+            onClick={() => router.push("/menu-management")}
+            className="text-white text-[20px] font-poppins hover:cursor-pointer hover:border-b-2"
+          >
+            Menus
+          </div>
           <div className="text-white text-[20px] font-poppins hover:cursor-pointer hover:border-b-2">
             Others...
           </div>

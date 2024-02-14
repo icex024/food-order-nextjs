@@ -8,6 +8,8 @@ export interface FoodInterface {
   foodStatistics: FoodStatisticsDto[];
   foodStatisticsMonth: number;
   foodStatisticsYear: number;
+  menusManagerFetchStatus: "FETCHED" | "NOTFETCHED" | "PENDING" | "REJECTED";
+  ingredientsFetchStatus: "FETCHED" | "NOTFETCHED" | "PENDING" | "REJECTED";
 }
 
 export interface AllergenDto {
