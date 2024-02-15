@@ -5,6 +5,11 @@ export interface FoodInterface {
   restaurantId: string;
   ingredients: IngredientDto[];
   menus: MenuDto[];
+  foodStatistics: FoodStatisticsDto[];
+  foodStatisticsMonth: number;
+  foodStatisticsYear: number;
+  menusManagerFetchStatus: "FETCHED" | "NOTFETCHED" | "PENDING" | "REJECTED";
+  ingredientsFetchStatus: "FETCHED" | "NOTFETCHED" | "PENDING" | "REJECTED";
 }
 
 export interface AllergenDto {
@@ -53,4 +58,11 @@ export interface IngredientDto {
 export interface MenuDto {
   id: string;
   name: string;
+}
+
+export interface FoodStatisticsDto {
+  id: string;
+  name: string;
+  numberOfOrders: number;
+  date: string;
 }

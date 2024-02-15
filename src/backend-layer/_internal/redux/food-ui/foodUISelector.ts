@@ -31,3 +31,19 @@ export const ingredientByIds = (state: AppState, ingredientIds: string[]) => {
   });
   return retVal;
 };
+
+export const foodStatistics = (state: AppState) => state.foodUI.foodStatistics;
+
+export const selectedFoodStatisticsMonth = (state: AppState) =>
+  state.foodUI.foodStatisticsMonth;
+
+export const selectedFoodStatisticsYear = (state: AppState) =>
+  state.foodUI.foodStatisticsYear;
+
+export const menusManagerFetchStatus = (state: AppState) =>
+  state.foodUI.menusManagerFetchStatus;
+
+export const ingredientFetchStatus = (state: AppState) =>
+  state.foodUI.ingredientsFetchStatus;
+
+export const allIngredients = (state: AppState) => state.foodUI.ingredients;

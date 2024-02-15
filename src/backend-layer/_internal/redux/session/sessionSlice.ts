@@ -3,7 +3,7 @@ import {
   SessionStateInterface,
   SessionStatusEnum,
 } from "./SessionStateInterface";
-import { setAuthToken } from "../../axios-wrapper";
+import { setAuthToken, setAuthTokenFile } from "../../axios-wrapper";
 import tokenStorage from "./tokenStorage";
 import { applySendSignUpRequestAsync } from "../../context/signup/sendSignUpRequestAsync";
 
@@ -21,6 +21,7 @@ export const sessionSlice = createSlice({
       state.token = action.payload;
       state.sessionStatus = SessionStatusEnum.Ready;
       setAuthToken(action.payload);
+      setAuthTokenFile(action.payload);
       tokenStorage.setToken(action.payload);
     },
     setSessionTokenWrondCredentials: (state) => {
