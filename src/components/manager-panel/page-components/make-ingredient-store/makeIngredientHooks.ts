@@ -13,15 +13,13 @@ export const useSetIngredientName = (): [string, (name: string) => void] => {
   ];
 };
 
-export const useSetIngredientMeatFree = (): [
-  boolean,
-  (meatFree: boolean) => void
-] => {
+export const useSetIngredientMeatFree = (): [boolean, () => void] => {
   const context = useContext(MakeIngredientContext);
 
   return [
     context.makeIngredientDto.meatFree,
-    (meatFree: boolean) => {
+    () => {
+      const meatFree = !context.makeIngredientDto.meatFree;
       context.dispatchState({ meatFree });
     },
   ];

@@ -31,3 +31,5 @@ export { useChangeMenu } from "../_internal/redux/food-ui/useChangeMenu";
 export { useOtherMenus } from "../_internal/redux/food-ui/useOtherMenus";
 export { useAddAllergen } from "../_internal/redux/food-ui/useAddAllergen";
 export { useAddIngredient } from "../_internal/redux/food-ui/useAddIngredient";
+export { useAllIngredients } from "../_internal/redux/food-ui/useAllIngredients";
+export { useAllAllergens } from "../_internal/redux/food-ui/useAllAllergens";

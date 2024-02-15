@@ -24,8 +24,17 @@ export const NavbarManager = () => {
           >
             Menus
           </div>
-          <div className="text-white text-[20px] font-poppins hover:cursor-pointer hover:border-b-2">
-            Others...
+          <div
+            onClick={() => router.push("/ingredients-management")}
+            className="text-white text-[20px] font-poppins hover:cursor-pointer hover:border-b-2"
+          >
+            Ingredients
+          </div>
+          <div
+            onClick={() => router.push("/allergens-management")}
+            className="text-white text-[20px] font-poppins hover:cursor-pointer hover:border-b-2"
+          >
+            Allergens
           </div>
         </div>
         <div className="text-white text-[20px] font-poppins hover:cursor-pointer hover:border-b-2">

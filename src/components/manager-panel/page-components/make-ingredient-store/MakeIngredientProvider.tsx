@@ -23,9 +23,9 @@ export const MakeIngredientProvider = ({
   };
 
   return (
-    <MakeIngredientContext.Provider
-      value={values}
-    ></MakeIngredientContext.Provider>
+    <MakeIngredientContext.Provider value={values}>
+      {children}
+    </MakeIngredientContext.Provider>
   );
 };
 

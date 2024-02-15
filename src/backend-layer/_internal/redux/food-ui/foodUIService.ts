@@ -106,9 +106,11 @@ export const changeFoodFromOneMenuToAnother = (
 };
 
 export const addIngredient = (dto: MakeIngredientDto) => {
-  return getAxios().post("/food/create-ingredient", dto);
+  return getAxios().post("/ingredient/create-ingredient", dto);
 };
 
 export const addAllergen = (name: string) => {
-  return getAxios().post("/food/create-allergen?name=" + name, { data: {} });
+  return getAxios().post("/allergen/create-allergen?name=" + name, {
+    data: {},
+  });
 };
