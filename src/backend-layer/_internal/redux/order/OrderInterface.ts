@@ -15,6 +15,32 @@ export interface OrderInterface {
     | "NOTFETCHED"
     | "PENDING"
     | "REJECTED";
+  viewOrdersDeliverer: ViewOrderDto[];
+  viewOrdersDelivererTaken: ViewOrderDto[];
+  viewOrdersDelivererInDelivery: ViewOrderDto[];
+  viewOrdersDelivererHistory: ViewOrderDto[];
+  viewOrdersDelivererFetchStatus:
+    | "FETCHED"
+    | "NOTFETCHED"
+    | "PENDING"
+    | "REJECTED";
+  viewOrdersDelivererTakenFetchStatus:
+    | "FETCHED"
+    | "NOTFETCHED"
+    | "PENDING"
+    | "REJECTED";
+  viewOrdersDelivererInDeliveryFetchStatus:
+    | "FETCHED"
+    | "NOTFETCHED"
+    | "PENDING"
+    | "REJECTED";
+  viewOrdersDelivererHistoryFetchStatus:
+    | "FETCHED"
+    | "NOTFETCHED"
+    | "PENDING"
+    | "REJECTED";
+  availableSlots: number;
+  availableSlotsFetchStatus: "FETCHED" | "NOTFETCHED" | "PENDING" | "REJECTED";
 }
 
 export interface CreateOrderDto {
@@ -38,4 +64,5 @@ export interface ViewOrderDto {
   status: string;
   delivererId: string;
   restaurantName: string;
+  address: string;
 }

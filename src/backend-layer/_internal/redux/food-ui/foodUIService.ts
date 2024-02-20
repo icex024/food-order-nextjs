@@ -114,3 +114,15 @@ export const addAllergen = (name: string) => {
     data: {},
   });
 };
+
+export const getFoodsByRestaurantId = (restaurantId: string) => {
+  return getAxios().get("/food/get-foods-by-restaurant-id?id=" + restaurantId, {
+    data: {},
+  });
+};
+
+export const getFoodsByUserId = (userId: string) => {
+  return getAxios().get("/food/get-foods-by-user-id?id=" + userId, {
+    data: {},
+  });
+};

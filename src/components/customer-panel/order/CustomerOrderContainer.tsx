@@ -61,7 +61,11 @@ const OrderCard: FC<{ order: ViewOrderDto }> = ({ order }) => {
         <div className="font-poppins text-[18px]">Restaurant name:</div>
         <div className="font-poppins text-[14px]">{order.restaurantName}</div>
         <div className="font-poppins text-[18px]">Time of order:</div>
-        <div className="font-poppins text-[14px] ">{`${date.getDate()}.${date.getMonth()}.${date.getFullYear()}. ${date.getHours()}:${date.getMinutes()}`}</div>
+        <div className="font-poppins text-[14px] ">{`${date.getDate()}.${date.getMonth()}.${date.getFullYear()}. ${
+          date.getHours() < 10 ? "0" + date.getHours() : date.getHours()
+        }:${
+          date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()
+        }`}</div>
         <div className="font-poppins text-[18px]">Status:</div>
         <div className="font-poppins text-[14px]">{order.status}</div>
       </div>

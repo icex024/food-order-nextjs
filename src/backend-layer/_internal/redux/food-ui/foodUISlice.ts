@@ -9,10 +9,12 @@ import { applyFetchFoodStatisticsAsync } from "./fetchFoodStatisticsAsync";
 import { act } from "react-dom/test-utils";
 import { applyFetchMenusForManagerAsync } from "./fetchMenusForManagerAsync";
 import { start } from "repl";
+import { applyFetchFoodsByUserIdAsync } from "./fetchFoodsByUserIdAsync";
 
 const foodUISliceInitialState: FoodInterface = {
   allergens: [],
   foods: {},
+  foodsFetchStatus: "NOTFETCHED",
   restaurantId: "",
   restaurant: {
     city: "",
@@ -109,6 +111,7 @@ export const foodUISlice = createSlice({
     applyFetchMenusAsync(builder);
     applyFetchFoodStatisticsAsync(builder);
     applyFetchMenusForManagerAsync(builder);
+    applyFetchFoodsByUserIdAsync(builder);
   },
 });
 

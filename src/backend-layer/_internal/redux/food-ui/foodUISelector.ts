@@ -47,3 +47,6 @@ export const ingredientFetchStatus = (state: AppState) =>
   state.foodUI.ingredientsFetchStatus;
 
 export const allIngredients = (state: AppState) => state.foodUI.ingredients;
+
+export const foodsFetchStatus = (state: AppState) =>
+  state.foodUI.foodsFetchStatus;
