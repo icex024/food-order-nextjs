@@ -5,6 +5,7 @@ import { TextAreaInput } from "@/components/inputs";
 import { FC, useState } from "react";
 import { calculateUnits } from "./calculateUnits";
 import { OrderItem } from "./OrderItem";
+import { useRouter } from "next/router";
 
 interface FoodUnitsDto {
   foodId: string;
@@ -17,6 +18,7 @@ export const OrderDetails = () => {
   const price = useCalculatePrice(currentOrder.foodIds);
   const [note, setNote] = useState("");
   const makeOrder = useMakeOrder();
+  const router = useRouter();
   return (
     <div className="max-w-[512px] w-full">
       <div className="text-[24px] font-poppins mb-2">Order items:</div>
@@ -29,7 +31,13 @@ export const OrderDetails = () => {
       <TextAreaInput setState={setNote} />
       <div className="flex gap-2 px-2 mt-2">
         <RegularButton color="white">Go back</RegularButton>
-        <RegularButton onClick={() => makeOrder(note)} color="primary-fourth">
+        <RegularButton
+          onClick={() => {
+            makeOrder(note);
+            router.push("/customer-panel");
+          }}
+          color="primary-fourth"
+        >
           Make order
         </RegularButton>
       </div>

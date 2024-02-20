@@ -1,18 +1,14 @@
-import { useFetchFoodsByUserIdIfNeeded } from "@/backend-layer/food-ui";
 import {
-  useFetchAvailableDelivererSlotsIfNeeded,
-  useFetchOrdersForDelivererIfNeeded,
-  useOrdersDeliverer,
+  useFetchOrdersForDelivererHistoryIfNeeded,
+  useOrdersDelivererHistory,
 } from "@/backend-layer/order";
 import { NavbarDeliverer, OrdersContainer } from "@/components/deliverer-panel";
 import { PanelContainer } from "@/components/sections";
 import { NextPage } from "next";
 
-const DelivererPanel: NextPage = () => {
-  useFetchFoodsByUserIdIfNeeded();
-  useFetchOrdersForDelivererIfNeeded();
-  const orders = useOrdersDeliverer();
-  useFetchAvailableDelivererSlotsIfNeeded();
+const DelivererHistory: NextPage = () => {
+  useFetchOrdersForDelivererHistoryIfNeeded();
+  const orders = useOrdersDelivererHistory();
   return (
     <>
       <NavbarDeliverer />
@@ -25,4 +21,4 @@ const DelivererPanel: NextPage = () => {
   );
 };
 
-export default DelivererPanel;
+export default DelivererHistory;

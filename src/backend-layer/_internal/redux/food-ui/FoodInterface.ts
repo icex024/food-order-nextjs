@@ -1,6 +1,7 @@
 export interface FoodInterface {
   allergens: AllergenDto[];
   foods: { [key in string]: FoodDto[] };
+  foodsFetchStatus: "FETCHED" | "NOTFETCHED" | "PENDING" | "REJECTED";
   restaurant: RestaurantDto;
   restaurantId: string;
   ingredients: IngredientDto[];
