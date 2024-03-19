@@ -102,6 +102,11 @@ export const foodUISlice = createSlice({
         state.foods[action.payload.newMenuId].push(food);
       }
     },
+    deleteAllergen: (state, action: PayloadAction<string>) => {
+      state.allergens = state.allergens.filter(
+        (allergen) => allergen.id !== action.payload
+      );
+    },
   },
   extraReducers: (builder) => {
     applyFetchAllergensAsyncExtraReducers(builder);
@@ -123,6 +128,7 @@ export const {
   removeFoodFromMenu,
   updateFoodPriceSlice,
   changeMenu,
+  deleteAllergen,
 } = foodUISlice.actions;
 
 export default foodUISlice.reducer;
