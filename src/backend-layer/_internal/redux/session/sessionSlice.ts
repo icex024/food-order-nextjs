@@ -27,13 +27,22 @@ export const sessionSlice = createSlice({
     setSessionTokenWrondCredentials: (state) => {
       state.sessionStatus = SessionStatusEnum.WrongCredentials;
     },
+    logOutSettings: (state) => {
+      state.userId = "";
+      tokenStorage.removeToken();
+      state.token = "";
+      state.sessionStatus = SessionStatusEnum.NotStarted;
+    },
   },
   extraReducers: (builder) => {
     applySendSignUpRequestAsync(builder);
   },
 });
 
-export const { setSessionToken, setSessionTokenWrondCredentials } =
-  sessionSlice.actions;
+export const {
+  setSessionToken,
+  setSessionTokenWrondCredentials,
+  logOutSettings,
+} = sessionSlice.actions;
 
 export default sessionSlice.reducer;

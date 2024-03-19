@@ -126,3 +126,19 @@ export const getFoodsByUserId = (userId: string) => {
     data: {},
   });
 };
+
+export const removeAllergen = (allergenId: string) => {
+  return getAxios().delete(
+    "/allergen/delete-allergen?allergenId=" + allergenId,
+    {
+      data: {},
+    }
+  );
+};
+
+export const removeIngredient = (ingredientId: string) => {
+  return getAxios().delete(
+    "/ingredient/delete-ingredient?ingredientId=" + ingredientId,
+    { data: {} }
+  );
+};

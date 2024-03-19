@@ -34,3 +34,5 @@ export { useAddIngredient } from "../_internal/redux/food-ui/useAddIngredient";
 export { useAllIngredients } from "../_internal/redux/food-ui/useAllIngredients";
 export { useAllAllergens } from "../_internal/redux/food-ui/useAllAllergens";
 export { useFetchFoodsByUserIdIfNeeded } from "../_internal/redux/food-ui/useFetchFoodsByUserIdIfNeeded";
+export { useRemoveAllergen } from "../_internal/redux/food-ui/useRemoveAllergen";
+export { useRemoveIngredient } from "../_internal/redux/food-ui/useRemoveIngredient";

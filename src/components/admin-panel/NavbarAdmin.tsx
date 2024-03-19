@@ -1,7 +1,7 @@
 import { useLogout } from "@/backend-layer/session";
 import { useRouter } from "next/router";
 
-export const NavbarDeliverer = () => {
+export const NavbarAdmin = () => {
   const router = useRouter();
   const logout = useLogout();
   return (
@@ -9,28 +9,28 @@ export const NavbarDeliverer = () => {
       <div className="flex justify-between h-[60px] py-[15px]">
         <div className="flex gap-3">
           <div
-            onClick={() => router.push("/deliverer-panel")}
+            onClick={() => router.push("/admin-panel")}
             className="text-white text-[20px] font-poppins hover:cursor-pointer hover:border-b-2"
           >
-            Available
+            Restaurants
           </div>
           <div
-            onClick={() => router.push("/taken-orders")}
+            onClick={() => router.push("/users-panel")}
             className="text-white text-[20px] font-poppins hover:cursor-pointer hover:border-b-2"
           >
-            Taken
+            Users
           </div>
           <div
-            onClick={() => router.push("/orders-in-delivery")}
+            onClick={() => router.push("/ingredients-management")}
             className="text-white text-[20px] font-poppins hover:cursor-pointer hover:border-b-2"
           >
-            In delivery
+            Ingredients
           </div>
           <div
-            onClick={() => router.push("/deliverer-history")}
+            onClick={() => router.push("/allergens-management")}
             className="text-white text-[20px] font-poppins hover:cursor-pointer hover:border-b-2"
           >
-            History
+            Allergens
           </div>
         </div>
         <div
