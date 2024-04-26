@@ -5,10 +5,10 @@ import { getMenusForRestaurant } from "./foodUIService";
 
 export const fetchMenusAsync = createAsyncThunk<
   MenuDto[],
-  { id: string },
+  { restaurantId: string },
   { state: AppState }
->("food-ui/fetchMenusAsync", async ({ id }) => {
-  const response = await getMenusForRestaurant(id);
+>("food-ui/fetchMenusAsync", async ({ restaurantId }) => {
+  const response = await getMenusForRestaurant(restaurantId);
 
   if (response.status !== 200) {
     throw Error("Something went wrong, status:" + response.status);
@@ -22,5 +22,12 @@ export const applyFetchMenusAsync = (
 ) => {
   builder.addCase(fetchMenusAsync.fulfilled, (state, action) => {
     state.menus = action.payload;
+    state.menusCustomerFetchStatus = "FETCHED";
+  });
+  builder.addCase(fetchMenusAsync.rejected, (state) => {
+    state.menusCustomerFetchStatus = "REJECTED";
+  });
+  builder.addCase(fetchMenusAsync.pending, (state) => {
+    state.menusCustomerFetchStatus = "PENDING";
   });
 };

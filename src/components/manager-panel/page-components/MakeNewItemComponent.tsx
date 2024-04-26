@@ -122,7 +122,7 @@ export const MakeNewItemComponent = () => {
         <RegularButton
           onClick={() => {
             createFood();
-            // router.push("/menu-management");
+            router.push("/menu-management");
           }}
           color="primary-fourth"
         >

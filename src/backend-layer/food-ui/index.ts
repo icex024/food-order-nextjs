@@ -36,3 +36,4 @@ export { useAllAllergens } from "../_internal/redux/food-ui/useAllAllergens";
 export { useFetchFoodsByUserIdIfNeeded } from "../_internal/redux/food-ui/useFetchFoodsByUserIdIfNeeded";
 export { useRemoveAllergen } from "../_internal/redux/food-ui/useRemoveAllergen";
 export { useRemoveIngredient } from "../_internal/redux/food-ui/useRemoveIngredient";
+export { useFetchMenusAndFoodsForCustomer } from "../_internal/redux/food-ui/useFetchMenusAndFoodsForCustomer";

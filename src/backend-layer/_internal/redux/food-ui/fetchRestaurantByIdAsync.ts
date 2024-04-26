@@ -6,12 +6,10 @@ import { fetchFoodsForMenuAsync } from "./fetchFoodsForMenuAsync";
 
 export const fetchRestaurantByIdAsync = createAsyncThunk<
   RestaurantDto,
-  undefined,
+  string,
   { state: AppState }
->("foodUI/fetchRestaurantByIdAsync", async (_, thunkApi) => {
-  const response = await getRestaurantById(
-    thunkApi.getState().foodUI.restaurantId
-  );
+>("foodUI/fetchRestaurantByIdAsync", async (restaurnatId) => {
+  const response = await getRestaurantById(restaurnatId);
 
   if (response.status !== 200) {
     throw Error("Something went wrong, status:" + response.status);

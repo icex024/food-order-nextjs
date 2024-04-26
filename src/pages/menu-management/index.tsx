@@ -128,10 +128,16 @@ const FoodItem: FC<{ food: FoodDto }> = ({ food }) => {
   const [menus, setMenus] = useState<MenuDto[]>([]);
   const otherMenus = useOtherMenus();
   const [showMenus, isShowMenus] = useState(false);
+  const image = `data:image/png;base64,${food?.image}`;
   return (
     <div className="flex flex-col justify-between max-w-[256px] w-full rounded-xl overflow-hidden shadow-xl bg-white">
       <div>
-        <Image src={NoImage} alt="nista" width={256} height={256} />
+        <Image
+          src={food.image ? image : NoImage}
+          alt="nista"
+          width={256}
+          height={256}
+        />
 
         <div className="flex flex-col justify-between ">
           <div className="p-2">{food.name}</div>

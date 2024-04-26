@@ -2,9 +2,11 @@ import {
   useFetchAllIngredients,
   useFetchFoodsByMenuId,
   useFetchMenus,
+  useFetchMenusAndFoodsForCustomer,
   useFoodsForMenu,
   useGetFood,
   useGetIngredients,
+  useMenus,
   useSelectedRestaurant,
 } from "@/backend-layer/food-ui";
 import { srcPng } from "@/consts";
@@ -24,10 +26,12 @@ import { useRouter } from "next/router";
 
 export const PreviewRestaurant = () => {
   const restaurant = useSelectedRestaurant();
-  const menus = useFetchMenus(restaurant.id);
+
   useFetchAllIngredients();
   const router = useRouter();
   const checkOrder = useCheckIfThereIsOrder();
+  useFetchMenusAndFoodsForCustomer();
+  const menus = useMenus();
   return (
     <>
       <div className="pt-4 flex relative">
@@ -87,7 +91,6 @@ const MenuItem: FC<{ children: ReactNode; menuId: string }> = ({
   menuId,
 }) => {
   const [isClicked, setClicked] = useState(false);
-  useFetchFoodsByMenuId(menuId);
   const foods = useFoodsForMenu(menuId);
   return (
     <>
@@ -124,7 +127,7 @@ const FoodItem: FC<{ food: FoodDto }> = ({ food }) => {
   return (
     <div className="flex flex-col justify-between max-w-[256px] w-full rounded-xl overflow-hidden shadow-xl bg-white">
       <div>
-        <Image src={NoImage} alt="nista" width={256} height={256} />
+        <Image src={srcPng(food?.image)} alt="nista" width={256} height={256} />
 
         <div className="flex flex-col justify-between ">
           <div className="p-2">{food.name}</div>

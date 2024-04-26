@@ -50,3 +50,6 @@ export const allIngredients = (state: AppState) => state.foodUI.ingredients;
 
 export const foodsFetchStatus = (state: AppState) =>
   state.foodUI.foodsFetchStatus;
+
+export const menusCustomerFetchStatus = (state: AppState) =>
+  state.foodUI.menusCustomerFetchStatus;

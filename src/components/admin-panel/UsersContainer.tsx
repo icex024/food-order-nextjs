@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 export const UsersContainer = () => {
   const users = useFetchedUsers();
   return (
-    <div className="flex pt-4 gap-4">
+    <div className="flex flex-wrap pt-4 gap-4">
       {users.map((user) => (
         <User user={user} key={user.id} />
       ))}

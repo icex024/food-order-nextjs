@@ -3,6 +3,7 @@ import {
   useFetchFoodsByMenuId,
   useFetchFoodsByMenuIds,
   useFetchMenus,
+  useFetchMenusAndFoodsForCustomer,
   useGetFood,
 } from "@/backend-layer/food-ui";
 import {
@@ -15,12 +16,14 @@ import { calculateUnits } from "./calculateUnits";
 import { OrderItem } from "./OrderItem";
 import { RegularButton } from "@/components/buttons";
 import { formatISO } from "date-fns";
+import { fetchMenusAndFoodsForCustomerAsync } from "@/backend-layer/_internal/redux/food-ui/fetchMenusAndFoodsForCustomerAsync";
 
 export const CustomerOrderContainer: FC<{ isInProgress: boolean }> = ({
   isInProgress,
 }) => {
   const orders = useOrdersForCustomer();
   const ordersHistory = useCustomerOrdersHistory();
+  useFetchMenusAndFoodsForCustomer();
   return (
     <div className="flex flex-wrap gap-4 pt-4">
       {isInProgress &&
@@ -32,8 +35,6 @@ export const CustomerOrderContainer: FC<{ isInProgress: boolean }> = ({
 };
 
 const OrderCard: FC<{ order: ViewOrderDto }> = ({ order }) => {
-  const menus = useFetchMenus(order.restaurantId);
-  useFetchFoodsByMenuIds(menus.map((menu) => menu.id));
   const foodDictionary = calculateUnits(order.foodIds);
   const cancelOrder = useCancelOrder();
   const date = new Date(order.timeOfMakingOrder);

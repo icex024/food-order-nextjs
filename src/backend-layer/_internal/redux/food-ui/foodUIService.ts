@@ -142,3 +142,10 @@ export const removeIngredient = (ingredientId: string) => {
     { data: {} }
   );
 };
+
+export const getMenusAndFoods = (restaurantId: string) => {
+  return getAxios().get(
+    "/menu/get-menus-and-foods-for-restaurant?restaurantId=" + restaurantId,
+    { data: {} }
+  );
+};

@@ -14,14 +14,17 @@ export const RestaurantCard: FC<Props> = ({ restaurant }) => {
   const router = useRouter();
   const setRestaurantId = useSetRestaurantId();
   return (
-    <div className="max-w-[256px] max-w rounded-xl overflow-hidden shadow-xl bg-primary">
+    <div className="max-w-[256px] max-w rounded-xl overflow-hidden shadow-xl bg-primary flex flex-col">
       {<Image src={src} alt="" width={256} height={256} />}
-      <div className="p-2">
-        <div className="mb-1">{restaurant.name}</div>
-        <div className="mb-1">{restaurant.description}</div>
-        <div className="mb-2">
-          {restaurant.workTimeStart} - {restaurant.workTimeEnd}
+      <div className="flex flex-col flex-grow justify-between p-2">
+        <div className="flex-grow flex flex-col">
+          <div className="mb-1">{restaurant.name}</div>
+          <div className="mb-1">{restaurant.description}</div>
+          <div className="mb-2">
+            {restaurant.workTimeStart} - {restaurant.workTimeEnd}
+          </div>
         </div>
+
         <div>
           <RegularButton
             onClick={() => {

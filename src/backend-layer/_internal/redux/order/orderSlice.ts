@@ -115,6 +115,15 @@ export const orderSlice = createSlice({
         state.viewOrdersDelivererHistory.push(order);
       }
     },
+    clearOrder: (state) => {
+      state.craeteOrder = {
+        userId: "",
+        foodIds: [],
+        note: "",
+        paymentType: "CASH",
+        price: 0,
+      };
+    },
   },
   extraReducers: (builder) => {
     applyFetchOrdersForCustomerInitialAsync(builder);
@@ -140,6 +149,7 @@ export const {
   increaseSlots,
   changeOrderFromTakenToInDelivery,
   changeOrderFromInDeliveryToDelivered,
+  clearOrder,
 } = orderSlice.actions;
 
 export default orderSlice.reducer;
