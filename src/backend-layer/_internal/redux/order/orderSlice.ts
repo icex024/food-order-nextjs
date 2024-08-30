@@ -12,7 +12,7 @@ import { applyFetchAvailableDelivererSlotsAsync } from "./fetchAvailableDelivere
 
 const orderInitialState: OrderInterface = {
   craeteOrder: {
-    foodIds: [],
+    foods: [],
     note: "",
     paymentType: "CASH",
     price: 0,
@@ -39,8 +39,15 @@ export const orderSlice = createSlice({
   initialState: orderInitialState,
   name: "order",
   reducers: {
-    addUnitToCart: (state, action: PayloadAction<string>) => {
-      state.craeteOrder.foodIds.push(action.payload);
+    addUnitToCart: (
+      state,
+      action: PayloadAction<{ id: string; name: string; price: number }>
+    ) => {
+      state.craeteOrder.foods.push({
+        id: action.payload.id,
+        name: action.payload.name,
+        price: action.payload.price,
+      });
     },
     setCustomerId: (state, action: PayloadAction<string>) => {
       state.craeteOrder.userId = action.payload;
@@ -118,7 +125,7 @@ export const orderSlice = createSlice({
     clearOrder: (state) => {
       state.craeteOrder = {
         userId: "",
-        foodIds: [],
+        foods: [],
         note: "",
         paymentType: "CASH",
         price: 0,

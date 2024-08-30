@@ -1,11 +1,5 @@
 import { ViewOrderDto } from "@/backend-layer/_internal/redux/order/OrderInterface";
-import {
-  useFetchFoodsByMenuId,
-  useFetchFoodsByMenuIds,
-  useFetchMenus,
-  useFetchMenusAndFoodsForCustomer,
-  useGetFood,
-} from "@/backend-layer/food-ui";
+import { useFetchMenusAndFoodsForCustomer } from "@/backend-layer/food-ui";
 import {
   useCancelOrder,
   useCustomerOrdersHistory,
@@ -15,17 +9,14 @@ import { FC } from "react";
 import { calculateUnits } from "./calculateUnits";
 import { OrderItem } from "./OrderItem";
 import { RegularButton } from "@/components/buttons";
-import { formatISO } from "date-fns";
-import { fetchMenusAndFoodsForCustomerAsync } from "@/backend-layer/_internal/redux/food-ui/fetchMenusAndFoodsForCustomerAsync";
 
 export const CustomerOrderContainer: FC<{ isInProgress: boolean }> = ({
   isInProgress,
 }) => {
   const orders = useOrdersForCustomer();
   const ordersHistory = useCustomerOrdersHistory();
-  useFetchMenusAndFoodsForCustomer();
   return (
-    <div className="flex flex-wrap gap-4 pt-4">
+    <div className="flex flex-wrap gap-4 pt-4 pb-4">
       {isInProgress &&
         orders.map((order, i) => <OrderCard order={order} key={i} />)}
       {!isInProgress &&
@@ -35,7 +26,7 @@ export const CustomerOrderContainer: FC<{ isInProgress: boolean }> = ({
 };
 
 const OrderCard: FC<{ order: ViewOrderDto }> = ({ order }) => {
-  const foodDictionary = calculateUnits(order.foodIds);
+  const foodDictionary = calculateUnits(order.foods);
   const cancelOrder = useCancelOrder();
   const date = new Date(order.timeOfMakingOrder);
   console.log(date);
@@ -47,14 +38,17 @@ const OrderCard: FC<{ order: ViewOrderDto }> = ({ order }) => {
           {Object.keys(foodDictionary).map((food, i) => (
             <OrderItem
               fontSize="text-[14px]"
-              foodId={food}
-              units={foodDictionary[food]}
+              food={foodDictionary[food]}
               key={i}
             />
           ))}
         </div>
-        <div className="font-poppins text-[18px] ">Note:</div>
-        <div className="font-poppins text-[14px]">{order.note}</div>
+        {order.note && (
+          <>
+            <div className="font-poppins text-[18px] ">Note:</div>
+            <div className="font-poppins text-[14px]">{order.note}</div>
+          </>
+        )}
         <div className="font-poppins text-[18px]">Price:</div>
         <div className="font-poppins text-[14px]">{order.price}</div>
         <div className="font-poppins text-[18px]">Payment type:</div>

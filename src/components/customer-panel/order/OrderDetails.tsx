@@ -14,16 +14,27 @@ interface FoodUnitsDto {
 
 export const OrderDetails = () => {
   const currentOrder = useGetCurrentOrder();
-  const foodDictionary = calculateUnits(currentOrder.foodIds);
-  const price = useCalculatePrice(currentOrder.foodIds);
+  const foodDictionary = calculateUnits(
+    currentOrder.foods.map((food) => {
+      return { id: food.id, name: food.name, price: food.price };
+    })
+  );
+  const price = useCalculatePrice();
   const [note, setNote] = useState("");
   const makeOrder = useMakeOrder();
   const router = useRouter();
   return (
-    <div className="max-w-[512px] w-full">
+    <div className="max-w-[512px] w-full mx-auto my-auto place-self-auto pb-[60px]">
       <div className="text-[24px] font-poppins mb-2">Order items:</div>
       {Object.keys(foodDictionary).map((foodId, i) => (
-        <OrderItem key={i} foodId={foodId} units={foodDictionary[foodId]} />
+        <OrderItem
+          key={i}
+          food={{
+            id: foodId,
+            name: foodDictionary[foodId].name,
+            units: foodDictionary[foodId].units,
+          }}
+        />
       ))}
       <div className="text-[24px] font-poppins my-2">Price:</div>
       <div className="text-[24px] font-poppins">{price}RSD</div>

@@ -10,8 +10,8 @@ const ReviewOrder: NextPage = () => {
   return (
     <>
       <NavbarCustomer></NavbarCustomer>
-      <div className="bg-primary">
-        <PanelContainer>
+      <div className="bg-primary flex">
+        <PanelContainer className="flex">
           <OrderDetails />
         </PanelContainer>
       </div>

@@ -45,7 +45,7 @@ export interface OrderInterface {
 
 export interface CreateOrderDto {
   userId: string;
-  foodIds: string[];
+  foods: { id: string; name: string; price: number }[];
   price: number;
   note: string;
   paymentType: "CASH" | "ONLINE";
@@ -55,7 +55,7 @@ export interface ViewOrderDto {
   id: string;
   customerId: string;
   restaurantId: string;
-  foodIds: string[];
+  foods: FoodForOrderDto[];
   price: number;
   note: string;
   paymentType: string;
@@ -65,4 +65,9 @@ export interface ViewOrderDto {
   delivererId: string;
   restaurantName: string;
   address: string;
+}
+
+export interface FoodForOrderDto {
+  id: string;
+  name: string;
 }

@@ -3,6 +3,7 @@ import { useStatusSession } from "@/backend-layer/_internal/redux/session/useSta
 import { useLogin, useRedirectToMainPage } from "@/backend-layer/session";
 import { RegularButton } from "@/components/buttons";
 import { NextPage } from "next";
+import { useRouter } from "next/router";
 import { useState } from "react";
 
 const Login: NextPage = () => {
@@ -11,6 +12,7 @@ const Login: NextPage = () => {
   const [password, setPassword] = useState("");
   const sessionStatus = useStatusSession();
   useRedirectToMainPage();
+  const router = useRouter();
   return (
     <div className="w-full h-screen bg-primary flex flex-col justify-center">
       <div className="max-w-[512px] w-full mx-auto px-4">
@@ -38,7 +40,11 @@ const Login: NextPage = () => {
           </div>
         )}
         <div className="flex gap-6 px-6">
-          <RegularButton className="mr-2" color="white">
+          <RegularButton
+            className="mr-2"
+            color="white"
+            onClick={() => router.push("/sign-up")}
+          >
             Sign up
           </RegularButton>
           <RegularButton

@@ -26,7 +26,7 @@ const SignUp: NextPage = () => {
   return (
     <div className="bg-primary h-screen">
       <SectionContainer className="h-screen flex flex-col justify-center ">
-        <div className="mx-auto max-w-[512px] w-full">
+        <div className="mx-auto max-w-[512px] w-full bg-white p-4 rounded-lg shadow-lg">
           <SignUpProvider>
             <SignUpContent />
           </SignUpProvider>
@@ -99,7 +99,7 @@ const SignUpContent = () => {
         setState={setStreetNumber}
         placeholder="Street number"
       />
-      <MapComponentSignUp />
+      {/* <MapComponentSignUp /> */}
       <div className="flex gap-2 mt-2">
         <RegularButton onClick={() => router.push("/")} color="white">
           Go back

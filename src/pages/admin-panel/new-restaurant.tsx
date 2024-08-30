@@ -24,7 +24,7 @@ const NewRestaurant: NextPage = () => {
     <>
       <NavbarAdmin />
       <div className="bg-primary">
-        <PanelContainer className="flex">
+        <PanelContainer className="flex pb-[60px]">
           <NewRestaurantProvider>
             <Component />
           </NewRestaurantProvider>

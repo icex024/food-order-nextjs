@@ -1,7 +1,6 @@
 import { AppState } from "../../store";
 
-export const selectedFoods = (state: AppState) =>
-  state.order.craeteOrder.foodIds;
+export const selectedFoods = (state: AppState) => state.order.craeteOrder.foods;
 
 export const currentOrder = (state: AppState) => state.order.craeteOrder;
 

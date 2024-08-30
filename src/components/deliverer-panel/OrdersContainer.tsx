@@ -37,24 +37,32 @@ function checkOrder(order: ViewOrderDto | undefined) {
 const OrderItem: FC<{
   order: ViewOrderDto;
 }> = ({ order }) => {
-  const foodDictionary = calculateUnits(order.foodIds);
+  const foodDictionary = calculateUnits(order.foods);
   const date = new Date(order.timeOfMakingOrder);
   return (
     <div className="flex flex-col justify-between max-w-[256px] w-full rounded-xl overflow-hidden shadow-xl bg-white p-4">
       <div className="flex flex-col gap-1 mb-2">
         <div className="font-poppins text-[18px]">Food items:</div>
         <div>
-          {Object.keys(foodDictionary).map((food, i) => (
+          {Object.keys(foodDictionary).map((id, i) => (
             <OrderUnits
               fontSize="text-[14px]"
-              foodId={food}
-              units={foodDictionary[food]}
+              food={{
+                id: foodDictionary[id].id,
+                name: foodDictionary[id].name,
+                units: foodDictionary[id].units,
+              }}
               key={i}
             />
           ))}
         </div>
-        <div className="font-poppins text-[18px] ">Note:</div>
-        <div className="font-poppins text-[14px]">{order.note}</div>
+        {order.note && (
+          <>
+            {" "}
+            <div className="font-poppins text-[18px] ">Note:</div>
+            <div className="font-poppins text-[14px]">{order.note}</div>
+          </>
+        )}
         <div className="font-poppins text-[18px]">Price:</div>
         <div className="font-poppins text-[14px]">{order.price}</div>
         <div className="font-poppins text-[18px]">Payment type:</div>
@@ -78,15 +86,13 @@ const OrderItem: FC<{
 };
 
 const OrderUnits: FC<{
-  foodId: string;
-  units: number;
+  food: { id: string; name: string; units: number };
   fontSize?: string;
-}> = ({ foodId, units, fontSize = "text-[24px]" }) => {
-  const food = useGetFood(foodId);
+}> = ({ food, fontSize = "text-[24px]" }) => {
   return (
     <div className={classNames("flex justify-between font-poppins", fontSize)}>
       <div>{food.name} </div>
-      <div>x{units}</div>
+      <div>x{food.units}</div>
     </div>
   );
 };

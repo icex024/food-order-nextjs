@@ -14,13 +14,13 @@ export const RestaurantCard: FC<Props> = ({ restaurant }) => {
   const router = useRouter();
   const setRestaurantId = useSetRestaurantId();
   return (
-    <div className="max-w-[256px] max-w rounded-xl overflow-hidden shadow-xl bg-primary flex flex-col">
+    <div className="max-w-[256px] max-w rounded-xl overflow-hidden shadow-xl bg-white flex flex-col">
       {<Image src={src} alt="" width={256} height={256} />}
       <div className="flex flex-col flex-grow justify-between p-2">
-        <div className="flex-grow flex flex-col">
-          <div className="mb-1">{restaurant.name}</div>
-          <div className="mb-1">{restaurant.description}</div>
-          <div className="mb-2">
+        <div className="flex-grow flex flex-col justify-between">
+          <div className="mb-1 flex-grow">{restaurant.name}</div>
+          <div className="mb-1 flex-grow">{restaurant.description}</div>
+          <div className="mb-2 ">
             {restaurant.workTimeStart} - {restaurant.workTimeEnd}
           </div>
         </div>

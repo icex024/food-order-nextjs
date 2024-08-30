@@ -61,10 +61,10 @@ const IngredientCard: FC<{ ingredient: IngredientDto; role: string }> = ({
   const allergens = useGetAllergens(ingredient.allergensId);
   const removeIngredient = useRemoveIngredient();
   return (
-    <div className="flex flex-col justify-between max-w-[150px] w-full bg-white p-2 rounded-lg shadow-lg hover:bg-primary-hover">
-      <div>{ingredient.name}</div>
+    <div className="flex flex-col  max-w-[150px] w-full bg-white p-2 rounded-lg shadow-lg hover:bg-primary-hover">
+      <div className="flex-grow">{ingredient.name}</div>
       {allergens.length !== 0 && (
-        <div>
+        <div className="flex-grow">
           <div>Allergens:</div>
           <div>
             {allergens.map((allergen, i) => (

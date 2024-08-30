@@ -27,7 +27,7 @@ const NewUser: NextPage = () => {
     <>
       <NavbarAdmin></NavbarAdmin>
       <div className="bg-primary">
-        <PanelContainer className="relative flex place-content-center">
+        <PanelContainer className="relative flex place-content-center pb-[60px]">
           <NewUserByAdminProvider>
             <Component />
           </NewUserByAdminProvider>

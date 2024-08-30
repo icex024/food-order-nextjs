@@ -148,7 +148,9 @@ const FoodItem: FC<{ food: FoodDto }> = ({ food }) => {
         <div>
           <RegularButton
             color="primary-fourth"
-            onClick={() => addUnitsToCart(food.id, numberOfUnits)}
+            onClick={() =>
+              addUnitsToCart(food.id, food.name, food.price, numberOfUnits)
+            }
           >
             Add to cart
           </RegularButton>

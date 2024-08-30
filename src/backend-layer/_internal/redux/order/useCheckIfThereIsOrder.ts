@@ -6,7 +6,7 @@ export const useCheckIfThereIsOrder = () => {
   const foods = useAppSelector(selectedFoods);
   const router = useRouter();
   return () => {
-    if (foods.length == 0) {
+    if (Object.keys(foods).length == 0) {
       alert("Please pick some food from menus!");
     } else {
       router.push("/restaurant-preview/review-order");

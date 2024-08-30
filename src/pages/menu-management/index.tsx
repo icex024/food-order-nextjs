@@ -94,11 +94,7 @@ const MenuItem: FC<{ children: ReactNode; menuId: string }> = ({
           <div className="flex gap-2 my-4">
             {" "}
             <div className="max-w-[256px] w-full">
-              <RegularButton
-                disabled
-                onClick={() => removeMenu(menuId)}
-                color="red"
-              >
+              <RegularButton onClick={() => removeMenu(menuId)} color="red">
                 Remove menu
               </RegularButton>
             </div>

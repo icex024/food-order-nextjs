@@ -9,7 +9,7 @@ const NewIngredient: NextPage = () => {
     <>
       <NavbarManager></NavbarManager>
       <div className="bg-primary">
-        <PanelContainer className="flex">
+        <PanelContainer className="flex pb-[60px]">
           <MakeIngredientProvider>
             <MakeIngredientComponent />
           </MakeIngredientProvider>

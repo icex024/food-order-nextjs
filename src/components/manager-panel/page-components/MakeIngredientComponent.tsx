@@ -24,7 +24,7 @@ export const MakeIngredientComponent = () => {
   const router = useRouter();
   const makeIngredient = useAddIngredientContext();
   return (
-    <div className="flex flex-col gap-2 max-w-[512px] w-full mx-auto bg-white p-4 place-self-center rounded-lg shadow-lg">
+    <div className="flex flex-col gap-2 max-w-[512px] w-full mx-auto bg-white p-4 place-self-center rounded-lg shadow-lg ">
       <div>
         <div className="text-[18px] font-poppins mb-2">Ingredient name:</div>
         <div>
