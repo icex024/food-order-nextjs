@@ -11,6 +11,7 @@ export const NavbarCustomer = () => {
           <div
             onClick={() => router.push("/customer-panel")}
             className="text-white text-[20px] font-poppins hover:cursor-pointer hover:border-b-2"
+            data-testid="customer-navbar-restaurants"
           >
             Restaurants
           </div>
